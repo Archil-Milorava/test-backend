@@ -1,10 +1,8 @@
 import { createServer } from "http";
 import path from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 import connectDB from "./DB/connectDB.js";
 import app from "./app.js";
-
-
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,8 +22,6 @@ const server = createServer(app);
 // }
 
 server.listen(PORT, async () => {
-  console.log(process.env.MONGO_URI);
-
   await connectDB();
   console.log(`Server is running on port ${PORT}`);
 });
